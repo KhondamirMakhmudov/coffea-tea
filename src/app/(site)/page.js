@@ -13,16 +13,28 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col">
-      <section className="mx-auto w-full max-w-6xl px-6 pt-2">
-        <div className="grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
-          <div>
+      <section className="relative flex min-h-120 items-center overflow-hidden sm:min-h-140 lg:min-h-160">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={heroImage}
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src="/videos/hero-video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-linear-to-r from-[#211C15]/90 via-[#211C15]/60 to-[#211C15]/20" />
+
+        <div className="relative mx-auto w-full max-w-6xl px-6 py-16">
+          <div className="max-w-xl">
             <div className="mb-5 text-xs font-bold uppercase tracking-widest text-[#BE5B36]">
               Малые партии · обжарка и купажи вручную
             </div>
-            <h1 className="max-w-[14ch] font-serif text-4xl leading-tight tracking-tight text-[#211C15] sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-[14ch] font-serif text-4xl leading-tight tracking-tight text-[#F5F0E6] sm:text-5xl lg:text-6xl">
               Кофе и листовой чай малыми партиями.
             </h1>
-            <p className="mt-6 max-w-[44ch] text-base leading-relaxed text-[#5A5245]">
+            <p className="mt-6 max-w-[44ch] text-base leading-relaxed text-[#F5F0E6]/80">
               Моносортовые зёрна и листовой чай, отобранные по сезону и
               доведённые до готовности в нашей обжарочной — для вашей кухни и
               для стойки вашего кафе.
@@ -30,24 +42,11 @@ export default async function Home() {
             <div className="mt-8 flex flex-wrap gap-3.5">
               <a
                 href="#categories"
-                className="inline-flex items-center justify-center rounded-full bg-[#211C15] px-7 py-3.5 text-sm font-semibold text-[#F5F0E6] transition-transform hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center rounded-full bg-[#F5F0E6] px-7 py-3.5 text-sm font-semibold text-[#211C15] transition-transform hover:-translate-y-0.5"
               >
                 Смотреть каталог
               </a>
             </div>
-          </div>
-          <div className="relative min-h-70 overflow-hidden rounded-2xl bg-[#EFE7D6] lg:min-h-115">
-            {heroImage ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={heroImage}
-                alt=""
-                referrerPolicy="no-referrer"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            ) : (
-              <BrandIllustration variant="cup" className="absolute inset-0" />
-            )}
           </div>
         </div>
       </section>
